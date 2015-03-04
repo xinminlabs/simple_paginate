@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+Gemfile.lock
 /.config
 /coverage/
 /InstalledFiles
@@ -8,6 +9,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+gemsfiles/*
 
 ## Specific to RubyMotion:
 .dat*
