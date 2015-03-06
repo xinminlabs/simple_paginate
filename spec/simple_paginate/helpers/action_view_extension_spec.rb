@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'SimplePaginate::ActionViewExtension', type: :helper, if: defined?(Rails) do
+describe 'SimplePaginate::ActionViewExtension', type: :helper do
   before :all do
     1.upto(100) {|i| User.create name: "user#{'%03d' % i}"}
   end

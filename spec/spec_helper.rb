@@ -1,6 +1,3 @@
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-
 begin
   require 'rails'
 rescue LoadError
@@ -10,12 +7,8 @@ require 'bundler/setup'
 Bundler.require
 
 require 'database_cleaner'
-
-if defined? Rails
-  require 'fake_app/rails_app'
-
-  require 'rspec/rails'
-end
+require 'fake_app/rails_app'
+require 'rspec/rails'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
