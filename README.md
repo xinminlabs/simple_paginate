@@ -31,3 +31,25 @@ SELECT * FROM posts OFFSET 20 LIMIT 11;
 ```
 
 it fetches one more record (11 = 10 + 1) to calculate if there is a next page records, so it doesn't need to send COUNT sql.
+
+
+### Usage
+
+```
+## perform a paginate query:
+@users = User.paginate(:page => params[:page])
+
+## render previous page link:
+<%= link_to_previous_page @users, 'Previous' %>
+
+## render next page link:
+<%= link_to_next_page @users, 'Next' %>
+```
+
+The default 'per_page' value is 25 and you can customize it:
+```
+## set default_per_page globally
+SimplePaginate.configure do |config|
+  config.default_per_page = 20
+end
+```
