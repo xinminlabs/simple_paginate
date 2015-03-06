@@ -3,11 +3,12 @@ module SimplePaginate
     initializer 'simple_paginate' do |app|
       ActiveSupport.on_load :active_record do
         require 'simple_paginate/models/active_record_extension'
-        include SimplePaginate::ActiveRecordExtension
+        ::ActiveRecord::Base.send :include, SimplePaginate::ActiveRecordExtension
       end
 
       ActiveSupport.on_load :action_view do
         require 'simple_paginate/helpers/action_view_extension'
+        ::ActionView::Base.send :include, SimplePaginate::ActionViewExtension
       end
     end
   end

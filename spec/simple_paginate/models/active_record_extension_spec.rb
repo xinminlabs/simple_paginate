@@ -5,7 +5,36 @@ describe SimplePaginate::ActiveRecordExtension do
     1.upto(100) {|i| User.create name: "user#{'%03d' % i}"}
   end
 
+  after :all do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
   describe '#paginate' do
+    subject { User.paginate(page: page) }
+
+    context 'page 1' do
+      let(:page) { 1 }
+
+      it { expect(subject.first.name).to eq('user001') }
+    end
+
+    context 'page 2' do
+      let(:page) { 2 }
+
+      it { expect(subject.first.name).to eq('user026') }
+    end
+
+    context 'page < 1' do
+      let(:page) { 0 }
+
+      it { expect(subject.first.name).to eq('user001') }
+    end
+
+    context 'page > max page' do
+      let(:page) { 5 }
+
+      it { expect(subject).to be_empty }
+    end
   end
 
   describe '#current_page' do
@@ -30,6 +59,7 @@ describe SimplePaginate::ActiveRecordExtension do
   describe '#last_page?' do
     context 'on last page' do
       subject { User.paginate(page: 4) }
+
       it { expect(subject.last_page?).to be_truthy }
     end
 

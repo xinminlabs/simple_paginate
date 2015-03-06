@@ -9,7 +9,6 @@ end
 require 'bundler/setup'
 Bundler.require
 
-require 'capybara/rspec'
 require 'database_cleaner'
 
 if defined? Rails
@@ -23,6 +22,5 @@ end
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  config.mock_with :rr
-  config.filter_run_excluding :generator_spec => true if !ENV['GENERATOR_SPEC']
+  config.infer_spec_type_from_file_location!
 end
