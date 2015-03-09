@@ -1,9 +1,7 @@
-# require 'rails/all'
 require 'action_controller/railtie'
 require 'action_view/railtie'
 
-require 'fake_app/active_record/config' if defined? ActiveRecord
-require 'fake_app/mongoid/config' if defined? Mongoid
+require 'fake_app/active_record/config' 
 # config
 app = Class.new(Rails::Application)
 app.config.secret_key_base = '9489b3eee4eccf317ed77407553e8adc97baca7c74dc7ee33cd93e4c8b69477eea66eaedeb18af0be2679887c7c69c0a28c0fded0a71ea472a8c4laalal19cb'
@@ -28,10 +26,10 @@ require 'fake_app/active_record/models'
 class ApplicationController < ActionController::Base; end
 class UsersController < ApplicationController
   def index
-    @users = User.page params[:page]
+    @users = User.paginate page: params[:page]
     render :inline => <<-ERB
 <%= @users.map(&:name).join("\n") %>
-<%= paginate @users %>
+<%= simple_paginate @users %>
 ERB
   end
 end

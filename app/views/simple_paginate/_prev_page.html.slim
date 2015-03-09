@@ -1,0 +1,7 @@
+/ Link to the 'Previous' page
+  - avaliable local variables
+    url:          url to the previous page
+    current_page: a page object for the currently displayed page
+    per_page:     number of items to fetch per page
+%span.prev
+  = link_to_unless current_page.first?, t('views.simple_paginate.previous').html_safe, url
