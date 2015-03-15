@@ -1,9 +1,9 @@
 <%# Link to the 'Next' page
   - avaliable local variables
-    url:          url to the previous page
+    url:          url to the next page
     current_page: a page object for the currently displayed page
     per_page:     number of items to fetch per page
 - %>
-<span class='prev'>
+<span class='next'>
   <%= link_to_unless current_page.last?, t('views.simple_paginate.next').html_safe, url %>
 </span>
