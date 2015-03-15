@@ -32,24 +32,46 @@ SELECT * FROM posts OFFSET 20 LIMIT 11;
 
 it fetches one more record (11 = 10 + 1) to calculate if there is a next page records, so it doesn't need to send COUNT sql.
 
+## Usage
 
-### Usage
+### Query Basics
 
 ```
 ## perform a paginate query:
 @users = User.paginate(:page => params[:page])
+```
 
+### Helpers 
+
+```
 ## render previous page link:
 <%= link_to_previous_page @users, 'Previous' %>
 
 ## render next page link:
 <%= link_to_next_page @users, 'Next' %>
+
+## render previous page link and next page link
+<%= simple_paginate @users
 ```
 
-The default 'per_page' value is 25 and you can customize it:
+### General configuration options
+
+You can configure the following default values by overriding these values using SimplePaginate.configure method.
+
 ```
-## set default_per_page globally
-SimplePaginate.configure do |config|
-  config.default_per_page = 20
-end
+default_per_page    # 25 by default
+```
+
+There's a handy generator that generates the default configuration file into config/initializers directory. Run the following generator command, then edit the generated file.
+
+```
+% rails g simple_paginate:config
+```
+
+### Customizing the pagination helper
+
+SimplePaginate includes a handy template generator, To edit your paginator, run the generator first:
+
+```
+% rails g simple_paginate:views 
 ```
