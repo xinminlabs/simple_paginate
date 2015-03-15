@@ -3,3 +3,8 @@ en:
     simple_paginate:
       next: 'Next'
       previous: 'Previous'
+tr:
+  views:
+    simple_paginate:
+      next: 'İleri'
+      previous: 'Geri'
