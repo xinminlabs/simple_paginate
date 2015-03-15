@@ -1,0 +1,5 @@
+en:
+  views:
+    simple_paginate:
+      next: 'Next'
+      previous: 'Previous'

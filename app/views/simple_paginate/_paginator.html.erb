@@ -1,0 +1,12 @@
+<%# The container tag
+  - available local variables
+    current_page: a page object for the currently display page
+    per_page:     number of items to fetch per page
+    paginator:    the paginator that renders the pagination tags inside
+-%>
+<%= paginator.render do %>
+  <div class='simple_paginate'>
+    <%= prev_page_tag unless current_page.first? %>
+    <%= next_page_tag unless current_page.last? %>
+  </div>
+<% end %>
