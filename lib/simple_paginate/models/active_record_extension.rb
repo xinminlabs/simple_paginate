@@ -21,6 +21,16 @@ module SimplePaginate
             loaded? ? @actual_records.length < limit_value : count(:all) < limit_value
           end
 
+          def per(num)
+            if (n = num.to_i) < 0 || !(/^\d/ =~ num.to_s)
+              self
+            elsif n.zero?
+              limit(n + 1)
+            else
+              limit(n + 1).offset(offset_value / (limit_value - 1) + 1)
+            end
+          end
+
           private
 
           def exec_queries
@@ -33,6 +43,10 @@ module SimplePaginate
             @records
           end
         end
+      end
+
+      def self.page(num = nil)
+        self.paginate(page: num)
       end
     end
   end
