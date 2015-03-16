@@ -39,6 +39,9 @@ it fetches one more record (11 = 10 + 1) to calculate if there is a next page re
 ```
 ## perform a paginate query:
 @users = User.paginate(:page => params[:page])
+
+# or, use page and per scope:
+@users = User.page(params[:page]).per(25)
 ```
 
 ### Helpers 
