@@ -75,3 +75,12 @@ SimplePaginate includes a handy template generator, To edit your paginator, run 
 ```
 % rails g simple_paginate:views 
 ```
+
+### Contribute
+
+To run the test suite locally:
+
+```
+% bundle install
+% rake spec:active_record_42
+```
