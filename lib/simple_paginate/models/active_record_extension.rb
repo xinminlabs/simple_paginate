@@ -12,6 +12,14 @@ module SimplePaginate
     end
 
     included do
+      class << self
+        def inherited_with_simple_paginate(kls)
+          inherited_without_simple_paginate kls
+          kls.send(:include, SimplePaginate::ActiveRecordModelExtension)
+        end
+        alias_method_chain :inherited, :simple_paginate
+      end
+
       self.descendants.each do |kls|
         kls.send(:include, SimplePaginate::ActiveRecordModelExtension)
       end
