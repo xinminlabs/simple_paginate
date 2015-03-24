@@ -19,7 +19,7 @@ app.routes.draw do
   resources :users
 end
 
-#models
+# models
 require 'fake_app/active_record/models'
 
 # controllers
