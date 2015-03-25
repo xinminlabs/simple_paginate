@@ -14,6 +14,4 @@ require 'rspec/rails'
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-RSpec.configure do |config|
-  config.infer_spec_type_from_file_location!
-end
+RSpec.configure(&:infer_spec_type_from_file_location!)
