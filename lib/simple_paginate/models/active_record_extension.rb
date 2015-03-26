@@ -20,7 +20,7 @@ module SimplePaginate
         alias_method_chain :inherited, :simple_paginate
       end
 
-      self.descendants.each do |kls|
+      descendants.each do |kls|
         kls.send(:include, SimplePaginate::ActiveRecordModelExtension)
       end
     end
