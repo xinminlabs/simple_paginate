@@ -14,7 +14,7 @@ module SimplePaginate
         @template.render partial: partial_path, locals: @options.merge(locals), formats: [:html]
       end
 
-      def page_url_for(page) 
+      def page_url_for(page)
         @template.url_for params_for(page).merge(only_path: true)
       end
 
@@ -55,7 +55,7 @@ module SimplePaginate
 
     class Page < Tag
       include Link
-      
+
       def page
         @options[:page]
       end

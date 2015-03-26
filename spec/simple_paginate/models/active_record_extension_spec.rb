@@ -35,8 +35,8 @@ describe SimplePaginate::ActiveRecordExtension do
 
       it { expect(subject).to be_empty }
     end
-  end  
-  
+  end
+
   describe '#page' do
     subject { User.page(page) }
 
