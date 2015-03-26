@@ -1,5 +1,6 @@
 # simple_paginate
 
+
 [![Build Status](https://travis-ci.org/xinminlabs/simple_paginate.png)](https://travis-ci.org/xinminlabs/simple_paginate)
 
 Simple pagination solution for previous and next page navigation.
