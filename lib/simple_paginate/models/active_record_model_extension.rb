@@ -46,7 +46,7 @@ module SimplePaginate
       end
 
       def self.page(num = nil)
-        paginate(page: num)
+        self.paginate(page: num)
       end
     end
   end
