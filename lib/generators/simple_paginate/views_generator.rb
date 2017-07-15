@@ -4,7 +4,7 @@ module SimplePaginate
     class ViewsGenerator < Rails::Generators::Base
       source_root File.expand_path('../../../../app/views/simple_paginate', __FILE__)
 
-      class_option :template_engine, :type => :string, :aliases => '-e', :desc => 'Template engine for the views. Available options are "erb", "haml", and "slim".'
+      class_option :template_engine, type: :string, aliases: '-e', desc: 'Template engine for the views. Available options are "erb", "haml", and "slim".'
 
       def self.banner #:nodoc:
         <<-BANNER.chomp

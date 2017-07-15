@@ -10,7 +10,7 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
-task :default => "spec:all"
+task default: "spec:all"
 
 namespace :spec do
   mappers = %w(
