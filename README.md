@@ -46,7 +46,7 @@ it fetches one more record (11 = 10 + 1) to calculate if there is a next page re
 @users = User.page(params[:page]).per(25)
 ```
 
-### Helpers 
+### Helpers
 
 ```
 ## render previous page link:
@@ -56,7 +56,7 @@ it fetches one more record (11 = 10 + 1) to calculate if there is a next page re
 <%= link_to_next_page @users, 'Next' %>
 
 ## render previous page link and next page link
-<%= simple_paginate @users
+<%= simple_paginate @users %>
 ```
 
 ### General configuration options
@@ -78,7 +78,7 @@ There's a handy generator that generates the default configuration file into con
 SimplePaginate includes a handy template generator, To edit your paginator, run the generator first:
 
 ```
-% rails g simple_paginate:views 
+% rails g simple_paginate:views
 ```
 
 ### Contribute
