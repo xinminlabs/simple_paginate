@@ -4,7 +4,13 @@ include SimplePaginate::Helpers
 describe 'SimplePaginate::Helpers', type: :helper do
   describe 'Tag' do
     describe '#page_url_for' do
-      before { helper.request.assign_parameters(_routes, 'users', 'index') }
+      before do
+        if Gem::Version.new(Rails.version) < Gem::Version.new('5.0.0')
+          helper.request.assign_parameters(_routes, 'users', 'index')
+        else
+          helper.request.assign_parameters(_routes, 'users', 'index', {}, '', [])
+        end
+      end
 
       context 'for first page' do
         subject { Tag.new(helper).page_url_for(1) }
@@ -13,7 +19,11 @@ describe 'SimplePaginate::Helpers', type: :helper do
 
       context 'with a friendly route setting' do
         before do
-          helper.request.assign_parameters(_routes, 'users', 'index', page: 3)
+          if Gem::Version.new(Rails.version) < Gem::Version.new('5.0.0')
+            helper.request.assign_parameters(_routes, 'users', 'index', { page: 3 })
+          else
+            helper.request.assign_parameters(_routes, 'users', 'index', { page: 3 }, '', [])
+          end
         end
 
         context 'for first page' do

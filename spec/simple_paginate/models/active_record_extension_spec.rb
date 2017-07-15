@@ -35,41 +35,6 @@ describe SimplePaginate::ActiveRecordExtension do
 
       it { expect(subject).to be_empty }
     end
-  end  
-  
-  describe '#page' do
-    subject { User.page(page) }
-
-    context 'page 1' do
-      let(:page) { 1 }
-
-      it { expect(subject.first.name).to eq('user001') }
-    end
-
-    context 'page 2' do
-      let(:page) { 2 }
-
-      it { expect(subject.first.name).to eq('user026') }
-    end
-
-    context 'page < 1' do
-      let(:page) { 0 }
-
-      it { expect(subject.first.name).to eq('user001') }
-    end
-
-    context 'page > max page' do
-      let(:page) { 5 }
-
-      it { expect(subject).to be_empty }
-    end
-  end
-
-  describe '#per' do
-    context 'page 1 per 5' do
-      subject { User.page(1).per(5) }
-      it { expect(subject.last.name).to eq('user006') }
-    end
   end
 
   describe '#current_page' do

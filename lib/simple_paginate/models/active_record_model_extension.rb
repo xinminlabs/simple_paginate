@@ -5,8 +5,8 @@ module SimplePaginate
     included do
       def self.paginate(options = {})
         options = options.dup
-        page = options.delete(:page) || 1
-        per_page = options.delete(:per_page) || SimplePaginate.config.default_per_page
+        page = (options.delete(:page) || 1).to_i
+        per_page = (options.delete(:per_page) || SimplePaginate.config.default_per_page).to_i
 
         offset(per_page * (page - 1)).limit(per_page + 1).extending do
           def current_page
@@ -18,17 +18,11 @@ module SimplePaginate
           end
 
           def last_page?
-            loaded? ? @actual_records.length < limit_value : count(:all) < limit_value
+            actual_records_length < limit_value
           end
 
-          def per(num)
-            if (n = num.to_i) < 0 || !(/^\d/ =~ num.to_s)
-              self
-            elsif n.zero?
-              limit(n + 1)
-            else
-              limit(n + 1).offset(offset_value / (limit_value - 1) + 1)
-            end
+          def actual_records_length
+            loaded? ? @actual_records.length : count(:all)
           end
 
           private
@@ -43,10 +37,6 @@ module SimplePaginate
             @records
           end
         end
-      end
-
-      def self.page(num = nil)
-        self.paginate(page: num)
       end
     end
   end

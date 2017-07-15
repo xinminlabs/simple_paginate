@@ -2,7 +2,7 @@ module SimplePaginate
   module ActionViewExtension
     # A helper that renders the pagination links
     def simple_paginate(scope, options = {})
-      paginator = SimplePaginate::Helpers::Paginator.new self, options.reverse_merge(current_page: scope.current_page, per_page: scope.limit_value, length: scope.length)
+      paginator = SimplePaginate::Helpers::Paginator.new self, options.reverse_merge(current_page: scope.current_page, per_page: scope.limit_value, length: scope.actual_records_length)
       paginator.to_s
     end
 
