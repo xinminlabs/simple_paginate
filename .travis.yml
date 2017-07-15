@@ -1,12 +1,10 @@
 language: ruby
 
 rvm:
-  - 2.1.5
-  - 2.2.1
+  - 2.3.3
 
 gemfile:
   gemfiles/active_record_42.gemfile
-
-script: 'bundle exec rake spec'
+  gemfiles/active_record_50.gemfile
 
 cache: bundler
