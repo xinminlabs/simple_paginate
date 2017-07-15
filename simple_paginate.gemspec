@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = SimplePaginate::VERSION
   spec.authors       = ["Yong Gu"]
   spec.email         = ["zerogy921@gmail.com"]
-  spec.summary       = %q{Simple pagination solution for previous and next page navigation.}
-  spec.description   = %q{Simple pagination solution for previous and next page navigation.}
+  spec.summary       = 'Simple pagination solution for previous and next page navigation.'
+  spec.description   = 'Simple pagination solution for previous and next page navigation.'
   spec.homepage      = ""
   spec.license       = "MIT"
 
