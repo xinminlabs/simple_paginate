@@ -5,11 +5,11 @@ require 'simple_paginate/version'
 Gem::Specification.new do |spec|
   spec.name          = "simple_paginate"
   spec.version       = SimplePaginate::VERSION
-  spec.authors       = ["Yong Gu"]
-  spec.email         = ["zerogy921@gmail.com"]
+  spec.authors       = ["Richard Huang"]
+  spec.email         = ["flyerhzm@gmail.com"]
   spec.summary       = 'Simple pagination solution for previous and next page navigation.'
   spec.description   = 'Simple pagination solution for previous and next page navigation.'
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/xinminlabs/simple_paginate"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

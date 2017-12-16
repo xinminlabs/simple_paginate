@@ -43,6 +43,7 @@ it fetches one more record (11 = 10 + 1) to calculate if there is a next page re
 ```
 ## perform a paginate query:
 @users = User.paginate(:page => params[:page], :per_page => params[:per_page])
+```
 
 ### Helpers
 
@@ -86,4 +87,6 @@ To run the test suite locally:
 ```
 % bundle install
 % rake spec:active_record_42
+% rake spec:active_record_50
+% rake spec:active_record_51
 ```
