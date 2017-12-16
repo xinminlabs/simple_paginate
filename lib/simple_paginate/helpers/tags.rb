@@ -5,7 +5,8 @@ module SimplePaginate
 
     class Tag
       def initialize(template, options = {})
-        @template, @options = template, options
+        @template = template
+        @options = options
         @views_prefix = @options.delete(:views_prefix)
         @params = template.params
         @params = @params.to_unsafe_h if @params.respond_to?(:to_unsafe_h)
