@@ -1,6 +1,8 @@
 # simple_paginate
 
 [![Build Status](https://travis-ci.org/xinminlabs/simple_paginate.png)](https://travis-ci.org/xinminlabs/simple_paginate)
+[ ![AwesomeCode Status for
+xinminlabs/simple_paginate](https://awesomecode.io/projects/d214f111-80a5-49c6-b8e5-af5220b5f838/status)](https://awesomecode.io/projects/31)
 
 Simple pagination solution for previous and next page navigation.
 
