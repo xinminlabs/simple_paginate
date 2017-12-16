@@ -20,7 +20,7 @@ describe 'SimplePaginate::Helpers', type: :helper do
       context 'with a friendly route setting' do
         before do
           if Gem::Version.new(Rails.version) < Gem::Version.new('5.0.0')
-            helper.request.assign_parameters(_routes, 'users', 'index', { page: 3 })
+            helper.request.assign_parameters(_routes, 'users', 'index', page: 3)
           else
             helper.request.assign_parameters(_routes, 'users', 'index', { page: 3 }, '', [])
           end
