@@ -16,6 +16,7 @@ namespace :spec do
   mappers = %w(
     active_record_42
     active_record_50
+    active_record_51
   )
 
   mappers.each do |gemfile|

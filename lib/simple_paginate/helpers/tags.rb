@@ -7,14 +7,18 @@ module SimplePaginate
       def initialize(template, options = {})
         @template, @options = template, options
         @views_prefix = @options.delete(:views_prefix)
-        @params = template.params.except(*PARAM_KEY_BLACKLIST).merge(@options.delete(:params) || {})
+        @params = template.params
+        @params = @params.to_unsafe_h if @params.respond_to?(:to_unsafe_h)
+        @params = @params.with_indifferent_access
+        @params.except!(*PARAM_KEY_BLACKLIST)
+        @params.merge!(@options.delete(:params) || {})
       end
 
       def to_s(locals = {})
         @template.render partial: partial_path, locals: @options.merge(locals), formats: [:html]
       end
 
-      def page_url_for(page) 
+      def page_url_for(page)
         @template.url_for params_for(page).merge(only_path: true)
       end
 
@@ -22,7 +26,7 @@ module SimplePaginate
 
       def params_for(page)
         page_params = Rack::Utils.parse_nested_query("#{PARAM_NAME}=#{page}")
-        page_params = @params.with_indifferent_access.deep_merge(page_params)
+        page_params = @params.deep_merge(page_params)
 
         if page <= 1
           PARAM_NAME.to_s.scan(/\w+/)[0..-2].inject(page_params){|h, k| h[k] }[$&] = nil
@@ -55,7 +59,7 @@ module SimplePaginate
 
     class Page < Tag
       include Link
-      
+
       def page
         @options[:page]
       end
