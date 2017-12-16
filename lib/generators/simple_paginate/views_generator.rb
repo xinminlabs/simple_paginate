@@ -1,6 +1,5 @@
 module SimplePaginate
   module Generators
-
     class ViewsGenerator < Rails::Generators::Base
       source_root File.expand_path('../../../../app/views/simple_paginate', __FILE__)
 
