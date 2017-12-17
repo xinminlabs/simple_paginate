@@ -11,11 +11,11 @@ end
 task test: 'spec:all'
 
 namespace :spec do
-  mappers = %w(
+  mappers = %w[
     active_record_42
     active_record_50
     active_record_51
-  )
+  ]
 
   mappers.each do |gemfile|
     desc "Run Tests against #{gemfile}"
