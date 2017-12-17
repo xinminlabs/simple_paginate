@@ -55,7 +55,7 @@ describe 'SimplePaginate::Helpers', type: :helper do
       describe '#last?' do
         context 'length == per_page' do
           subject { Paginator::PageProxy.new(current_page: 5, length: 25, per_page: 25) }
-          it { expect(subject.last?).to be_falsey}
+          it { expect(subject.last?).to be_falsey }
         end
         context 'length < per_page' do
           subject { Paginator::PageProxy.new(current_page: 5, length: 20, per_page: 25) }

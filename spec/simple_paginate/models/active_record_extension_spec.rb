@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SimplePaginate::ActiveRecordExtension do
   before :all do
-    1.upto(100) {|i| User.create name: "user#{'%03d' % i}"}
+    1.upto(100) { |i| User.create name: "user#{'%03d' % i}" }
   end
 
   after :all do

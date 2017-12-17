@@ -30,7 +30,7 @@ module SimplePaginate
         page_params = @params.deep_merge(page_params)
 
         if page <= 1
-          PARAM_NAME.to_s.scan(/\w+/)[0..-2].inject(page_params){|h, k| h[k] }[$&] = nil
+          PARAM_NAME.to_s.scan(/\w+/)[0..-2].inject(page_params) { |h, k| h[k] }[$&] = nil
         end
 
         page_params
