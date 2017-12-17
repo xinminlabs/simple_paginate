@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'SimplePaginate::ActionViewExtension', type: :helper do
   before :all do
-    1.upto(100) { |i| User.create name: "user#{'%03d' % i}" }
+    1.upto(100) { |i| User.create name: "user#{format('%03d', i)}" }
   end
 
   after :all do
