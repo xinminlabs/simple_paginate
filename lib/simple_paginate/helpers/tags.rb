@@ -1,7 +1,7 @@
 module SimplePaginate
   module Helpers
-    PARAM_KEY_BLACKLIST = :authenticity_token, :commit, :utf8, :_method
-    PARAM_NAME = 'page'
+    PARAM_KEY_BLACKLIST = [:authenticity_token, :commit, :utf8, :_method].freeze
+    PARAM_NAME = 'page'.freeze
 
     class Tag
       def initialize(template, options = {})
