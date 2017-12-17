@@ -39,8 +39,7 @@ module SimplePaginate
       def partial_path
         [@views_prefix,
          'simple_paginate',
-         self.class.name.demodulize.underscore
-        ].compact.join('/')
+         self.class.name.demodulize.underscore].compact.join('/')
       end
     end
 
