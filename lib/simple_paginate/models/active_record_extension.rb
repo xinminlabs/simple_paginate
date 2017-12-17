@@ -12,7 +12,7 @@ module SimplePaginate
     end
 
     included do
-      self.descendants.each do |kls|
+      descendants.each do |kls|
         kls.send(:include, SimplePaginate::ActiveRecordModelExtension)
       end
     end
