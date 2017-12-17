@@ -8,7 +8,7 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
-task test: "spec:all"
+task test: 'spec:all'
 
 namespace :spec do
   mappers = %w(
@@ -25,7 +25,7 @@ namespace :spec do
     end
   end
 
-  desc "Run Tests against all ORMs"
+  desc 'Run Tests against all ORMs'
   task :all do
     mappers.each do |gemfile|
       sh "BUNDLE_GEMFILE='gemfiles/#{gemfile}.gemfile' bundle --quiet"
