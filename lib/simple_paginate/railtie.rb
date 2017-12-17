@@ -1,6 +1,6 @@
 module SimplePaginate
   class Railtie < Rails::Railtie
-    initializer 'simple_paginate' do |app|
+    initializer 'simple_paginate' do |_app|
       ActiveSupport.on_load :active_record do
         require 'simple_paginate/models/active_record_extension'
         ::ActiveRecord::Base.send :include, SimplePaginate::ActiveRecordExtension
