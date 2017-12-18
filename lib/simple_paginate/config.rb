@@ -1,7 +1,7 @@
 require 'active_support/configurable'
 
 module SimplePaginate
-  def self.configure(&block)
+  def self.configure()
     yield @config ||= SimplePaginate::Configuration.new
   end
 
